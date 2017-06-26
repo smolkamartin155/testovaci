@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <%= hidden_field_tag "flash_variant", @flash_variant %>
+<h1>Product</h1>
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -18,4 +19,4 @@
 </div>
 
 
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', :back %>
