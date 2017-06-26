@@ -16,6 +16,6 @@ class Item < ActiveRecord::Base
   end
 
   def variant_product_id
-    self.try(:variant).try(:id)
+    self.try(:variant).try(:product_id)
   end
 end

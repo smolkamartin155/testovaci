@@ -3,11 +3,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @id = @item.id
-    begin
-      @item.destroy
-    rescue ActiveRecord::RecordNotDestroyed
-    end
-
+    @item.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
