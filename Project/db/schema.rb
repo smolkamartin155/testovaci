@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626094742) do
+ActiveRecord::Schema.define(version: 20170626100212) do
 
   create_table "documents", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "items", force: true do |t|
+    t.integer  "variant_id"
+    t.integer  "document_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["document_id"], name: "index_items_on_document_id"
+  add_index "items", ["variant_id"], name: "index_items_on_variant_id"
 
   create_table "products", force: true do |t|
     t.string   "name"

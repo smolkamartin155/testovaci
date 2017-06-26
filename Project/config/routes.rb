@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :items
+
   root 'products#index'
   resources :products, except: [:edit, :update]
   resources :documents, except: [:edit, :update]

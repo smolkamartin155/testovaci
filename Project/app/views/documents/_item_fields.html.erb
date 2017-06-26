@@ -1,0 +1,9 @@
+<div>
+  <% f.object.build_variant unless f.object.variant %>
+  <%= f.fields_for :variant do |v| %>
+  <div class="field">
+    Items:<br>
+    <%= v.select :id, Variant.all.map{|a| [a.name,a.id]} %>
+  </div>
+  <% end %>
+</div>

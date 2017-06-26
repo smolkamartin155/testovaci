@@ -4,4 +4,12 @@
   <strong>Name:</strong>
   <%= @document.name %>
 </p>
+<div>
+  <strong>Variants:</strong>
+  <% @document.variants.each do |variant| %>
+    <br>
+    <strong>Name:</strong>
+    <%= link_to variant.name, product_path(variant.product_id) %>
+  <% end %>
+</div>
 <%= link_to 'Back', documents_path %>
