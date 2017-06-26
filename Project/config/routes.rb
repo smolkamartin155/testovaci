@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'products#index'
-  resources :products
+  resources :products, except: [:edit, :update]
+  resources :documents, except: [:edit, :update]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -15,20 +15,8 @@ RSpec.describe ProductsController, type: :routing do
       expect(:get => "/products/1").to route_to("products#show", :id => "1")
     end
 
-    it "routes to #edit" do
-      expect(:get => "/products/1/edit").to route_to("products#edit", :id => "1")
-    end
-
     it "routes to #create" do
       expect(:post => "/products").to route_to("products#create")
-    end
-
-    it "routes to #update via PUT" do
-      expect(:put => "/products/1").to route_to("products#update", :id => "1")
-    end
-
-    it "routes to #update via PATCH" do
-      expect(:patch => "/products/1").to route_to("products#update", :id => "1")
     end
 
     it "routes to #destroy" do
