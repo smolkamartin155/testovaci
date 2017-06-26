@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :items
 
-  root 'products#index'
+  root 'documents#index'
   resources :products, except: [:edit, :update] do
     resources :variants, only: [:destroy]
   end
