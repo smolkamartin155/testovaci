@@ -8,9 +8,12 @@
 <div>
   <strong>Variants:</strong>
   <% @product.variants.each do |variant| %>
-    <br>
-    <strong>Name:</strong>
-    <%= variant.name %>
+    <div id="variant_<%= variant.id %>">
+      <br>
+      <strong>Name:</strong>
+      <%= variant.name %>
+      <%= link_to 'Destroy', product_variant_path(id: variant.id,product_id: @product.id), method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
+    </div>
   <% end %>
 </div>
 

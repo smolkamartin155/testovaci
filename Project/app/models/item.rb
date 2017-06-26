@@ -10,4 +10,12 @@ class Item < ActiveRecord::Base
   def variant_attributes=(variant_attrs)
       self.variant = Variant.find_by_id(variant_attrs.delete(:id))
   end
+
+  def variant_name
+    self.try(:variant).try(:name)
+  end
+
+  def variant_product_id
+    self.try(:variant).try(:id)
+  end
 end

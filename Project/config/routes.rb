@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   resources :items
 
   root 'products#index'
-  resources :products, except: [:edit, :update]
-  resources :documents, except: [:edit, :update]
+  resources :products, except: [:edit, :update] do
+    resources :variants, only: [:destroy]
+  end
+
+  resources :documents, except: [:edit, :update] do
+    resources :items, only: [:destroy]
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,10 +6,13 @@
 </p>
 <div>
   <strong>Variants:</strong>
-  <% @document.variants.each do |variant| %>
-    <br>
-    <strong>Name:</strong>
-    <%= link_to variant.name, product_path(variant.product_id) %>
+  <% @document.items.each do |item| %>
+    <div id="item_<%= item.id %>">
+      <br>
+      <strong>Name:</strong>
+      <%= link_to item.variant_name, product_path(item.variant_product_id) %>
+      <%= link_to 'Destroy', document_item_path(id: item.id, document_id: item.document_id), method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
+    </div>
   <% end %>
 </div>
 <%= link_to 'Back', documents_path %>
