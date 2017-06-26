@@ -15,6 +15,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <div class='links'>
+    <%= link_to_add_association 'Add variant', f, :variants,:"data-association-insertion-method" => "append", class: 'btn btn-primary btn-success' %>
+  </div>
+  <div>
+    <%= f.fields_for :variants do |f| %>
+      <%= render(:partial => "variant_fields", locals: {f: f}) %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
